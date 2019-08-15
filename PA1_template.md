@@ -47,7 +47,7 @@ hist(daywise,col = "steelblue")
 
 dataSet_new$day<-format(as.Date(date,"%d-%A-%Y"),format="%A")
 dataSet_new$Week<- ifelse(dataSet_new$day %in% c("Sunday","Saturday") ,"Weekends","Weekdays")
-stepsByDay<-aggregate(steps~Week+interval,data = dataSet_new,mean)
+stepsByDay<-aggregate(steps~ Week+interval,data = dataSet_new,mean)
 xyplot(steps~interval|Week,data= stepsByDay,layout=c(1,2),type="l")
 
 
